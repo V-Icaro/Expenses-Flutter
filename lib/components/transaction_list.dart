@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
-  const TransactionList({super.key, this.transactions});
+  const TransactionList({
+    super.key,
+    this.transactions,
+    this.onRemove,
+  });
 
   final List<Transaction>? transactions;
+  final void Function(String)? onRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +66,11 @@ class TransactionList extends StatelessWidget {
                     ),
                     subtitle: Text(
                       DateFormat('d MMM y').format(tr.date!),
+                    ),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.delete),
+                      color: Colors.red,
+                      onPressed: () => onRemove!(tr.id!),
                     ),
                   ),
                 );

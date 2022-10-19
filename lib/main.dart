@@ -83,6 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.of(context).pop();
   }
 
+  _removeTransaction(String id) {
+    setState(() {
+      _transactions.removeWhere((tr) => tr.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +108,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Chart(
               recentsTransactions: _recentTransactions,
             ),
-            TransactionList(transactions: _transactions)
+            TransactionList(
+              transactions: _transactions,
+              onRemove: _removeTransaction,
+            )
           ],
         ),
       ),
