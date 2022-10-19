@@ -15,7 +15,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 430,
       //Condição para exibir lista caso exista transações,
       //Senão, será exibido imagem.
       child: transactions!.isEmpty
