@@ -20,7 +20,7 @@ class ChartBar extends StatelessWidget {
           height: 15,
           child: FittedBox(
             child: Text(
-              '${value!}',
+              value! == 0 ? "0" : value!.toStringAsFixed(2),
               style: const TextStyle(
                 fontSize: 10,
               ),
